@@ -1,0 +1,33 @@
+{
+    "name": "searchengine",
+    "version": "1.0.0",
+    "description": "Search Engine for ResearchKernel",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ResearchKernel/searchengine.git"
+    },
+    "keywords": [
+        "elaticsearch",
+        "search"
+    ],
+    "author": "Prakritidev Verma",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ResearchKernel/searchengine/issues"
+    },
+    "homepage": "https://github.com/ResearchKernel/searchengine#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "bunyan": "^1.8.12",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "elasticsearch": "^16.5.0",
+        "express": "^4.17.1",
+        "nodemon": "^1.19.4"
+    }
+}
