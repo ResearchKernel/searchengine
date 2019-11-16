@@ -1,26 +1,33 @@
 const Utils = require('../utils/index.js')()
 const config = require('../config/index')
 module.exports = () => {
-    const searchEngine = ( payload, db, logger ) => new Promise(async(resolve, reject) => {
+    const searchEngine = (payload, db, logger) => new Promise(async(resolve, reject) => {
         try {
-            const { query, offset, size, start_date, end_date } = payload
+            const {
+                query,
+                offset,
+                size,
+                start_date,
+                end_date
+            } = payload
             const searchengine_query = {
-              "from": 0, "size": 10,
-              "query": {
-                "multi_match": {
-            "query": query,
-            "type": "cross_fields",
-            "fields": [
-                "arxiv_id",
-                "abstract",
-                "title",
-                "abstract",
-                "authors",
-                "doi"
-            ],
-        }
-    }
-}
+                "from": 0,
+                "size": 10,
+                "query": {
+                    "multi_match": {
+                        "query": query,
+                        "type": "cross_fields",
+                        "fields": [
+                            "arxiv_id",
+                            "abstract",
+                            "title",
+                            "abstract",
+                            "authors",
+                            "doi"
+                        ],
+                    }
+                }
+            }
             const response = await db.search({
                 index: config.es_dbname,
                 body: searchengine_query
@@ -31,7 +38,7 @@ module.exports = () => {
             reject(error)
         }
     })
-    
+
     return {
         searchEngine
     }
