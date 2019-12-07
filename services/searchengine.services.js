@@ -11,8 +11,8 @@ module.exports = () => {
                 end_date
             } = payload
             const searchengine_query = {
-                "from": 0,
-                "size": 10,
+                "from": offset,
+                "size": size,
                 "query": {
                     "multi_match": {
                         "query": query,
